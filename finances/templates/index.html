@@ -5,8 +5,7 @@
 {% block content %}
 <div class="container">
     <div class="col-12">
-        <p>Cotação em tempo real, via API HG Finance Brasil</p>
-        <p>Real <span class="badge badge-pill badge-primary">XXX</span></p>
+        <p><h2>Cotação em tempo real, via API HG Finance Brasil</h2>
     </div>
     <table class="table table-striped">
         <thead>
@@ -23,11 +22,11 @@
             {% for moeda in moedas %}
             <tr>
                 <th scope="row">Custo em Reais</th>
-                <th scope="row">{{ moeda.dolar }}</th>
-                <th scope="row">{{ moeda.euro }}</th>
-                <th scope="row">{{ moeda.libra }}</th>
-                <th scope="row">{{ moeda.peso }}</th>
-                <th scope="row">{{ moeda.data }}</th>
+                <th class="dolar" scope="row">{{ moeda.dolar }}</th>
+                <th class="euro" scope="row">{{ moeda.euro }}</th>
+                <th class="libra" scope="row">{{ moeda.libra }}</th>
+                <th class="peso" scope="row">{{ moeda.peso }}</th>
+                <th class="data" scope="row">{{ moeda.data }}</th>
 
             </tr>
             {% endfor %}
