@@ -4,4 +4,13 @@
 *venv
 
 *.pyc
-*/finances/__pycache__/*
+
+finances/migrations/
+finances/__pycache__/
+hg_api/__pycache__/settings.cpython-38.pyc
+finances/__pycache__/views.cpython-38.pyc
+finances/__pycache__/urls.cpython-38.pyc
+finances/__pycache__/models.cpython-38.pyc
+finances/__pycache__/forms.cpython-38.pyc
+finances/__pycache__/admin.cpython-38.pyc
+
