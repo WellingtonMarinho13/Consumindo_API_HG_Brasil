@@ -30,4 +30,3 @@ class Form_Peso_Moeda(ModelForm):
     class Meta:
         model = Peso_Argentino_Moeda
         fields = ['name_peso', 'buy_peso', 'sell_peso', 'variacao_peso']
-

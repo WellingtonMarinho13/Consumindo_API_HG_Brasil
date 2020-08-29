@@ -2,3 +2,6 @@
 *db.sqlite3
 
 *venv
+
+*.pyc
+*/finances/__pycache__/*

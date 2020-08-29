@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block title %} TEste {% endblock %}
+
+{% block content %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Real</th>
+                <th scope="col">1 Dolar</th>
+                <th scope="col">1 Euro</th>
+                <th scope="col">1 Libra</th>
+                <th scope="col">1 Peso</th>
+                <th scope="col">Data</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for moeda in moedas %}
+            <tr>
+                <th scope="row">Custo em Reais</th>
+                <th scope="row">{{ moeda.dolar }}</th>
+                <th scope="row">{{ moeda.euro }}</th>
+                <th scope="row">{{ moeda.libra }}</th>
+                <th scope="row">{{ moeda.peso }}</th>
+                <th scope="row">{{ moeda.data }}</th>
+
+            </tr>
+            {% endfor %}
+<!-- 
+            {% for d in dolar %}
+            <tr>
+                <th>{{ d.buy_dolar }}</th>
+            </tr>
+            {% endfor %}
+
+
+            {% for d in euro %}
+            <tr>
+                <th>{{ d.buy_euro }}</th>
+            </tr>
+            {% endfor %}
+
+
+            {% for d in libra %}
+            <tr>
+                <th>{{ d.buy_libra }}</th>
+            </tr>
+            {% endfor %}
+
+
+            {% for d in peso %}
+            <tr>
+                <th>{{ d.buy_peso }}</th>
+            </tr>
+            {% endfor %}
+
+            {% for d in real %}
+            <tr>
+                <th>{{ d.real_data}}</th>
+            </tr>
+            {% endfor %}
+ -->
+
+        </tbody>
+    </table>
+
+
+
+
+
+    <!-- {% for moeda in cambio %}
+    <ul>
+        <li>{{ moeda.dolar. }}</li>
+    </ul>
+    {% endfor %} -->
+
+{% endblock%}

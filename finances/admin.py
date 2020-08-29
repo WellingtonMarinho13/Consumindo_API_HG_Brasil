@@ -19,10 +19,26 @@ class Euro_Moeda_Admin(admin.ModelAdmin):
 
 @admin.register(Libra_Esterlina_Moeda)
 class Libra_Esterlina_Moeda_Admin(admin.ModelAdmin):
-    list_display = ('name_libra', 'buy_libra', 'sell_libra', 'variacao_libra', 'data_libra')
+    list_display = ('get_name_libra', 'buy_libra', 'sell_libra', 'variacao_libra', 'data_libra')
+
+    def get_name_libra(self, obj):
+        return 'Libra Esterlina'
+
+    get_name_libra.short_description = 'Libra Esterlina'
+
 
 
 @admin.register(Peso_Argentino_Moeda)
 class Peso_Argentino_Moeda_Admin(admin.ModelAdmin):
     list_display = ('name_peso', 'buy_peso', 'sell_peso', 'variacao_peso', 'data_peso')
+
+
+@admin.register(Preco_Moedas_Compra)
+class Preco_Moedas_Compra_Admin(admin.ModelAdmin):
+    list_display = ('dolar', 'euro', 'libra', 'peso')
+
+
+@admin.register(Preco_Moedas_Venda)
+class Preco_Moedas_Venda_Admin(admin.ModelAdmin):
+    list_display = ('dolar', 'euro', 'libra', 'peso')
 
