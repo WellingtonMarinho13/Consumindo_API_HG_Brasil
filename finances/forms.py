@@ -30,3 +30,16 @@ class Form_Peso_Moeda(ModelForm):
     class Meta:
         model = Peso_Argentino_Moeda
         fields = ['name_peso', 'buy_peso', 'sell_peso', 'variacao_peso']
+
+
+class Form_Preco_Moeda_Compra(ModelForm):
+    class Meta:
+        model = Preco_Moedas_Compra
+        fields = ['dolar', 'euro', 'libra', 'peso']
+
+
+class Form_Preco_Moeda_Venda(ModelForm):
+    class Meta:
+        model = Preco_Moedas_Venda
+        fields = ['dolar', 'euro', 'libra', 'peso']
+

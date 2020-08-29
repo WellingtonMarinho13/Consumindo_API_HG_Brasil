@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
-{% block title %} TEste {% endblock %}
+{% load static %}
+{% block title %} Cotação Agora {% endblock %}
 
 {% block content %}
 <div class="container">
@@ -33,4 +34,8 @@
         </tbody>
     </table>
 </div>
+
+{% include 'parciais/_paginacao.html' %}
+
 {% endblock%}
+

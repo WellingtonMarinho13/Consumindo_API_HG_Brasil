@@ -1,13 +1,25 @@
 from django.shortcuts import render, redirect
 import requests
 from .forms import *
-from django.core.paginator import Paginator
+from django.views.generic import ListView
 
 
-def index(request):
+class Index(ListView):
+    model = Preco_Moedas_Compra
+    template_name = 'index.html'
+    paginate_by = 10
+    context_object_name = 'moedas'
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+        qs = qs.order_by('-id').all()
+
+        return qs
+
+
+def atualiza(request):
     recebe_dados_e_salvar(request)
-    moedas = Preco_Moedas_Compra.objects.order_by('-id').all()
-    return render(request, 'index.html', {'moedas': moedas})
+    return redirect('index')
 
 
 def recebe_dados_e_salvar(request):
@@ -75,6 +87,7 @@ def recebe_dados_e_salvar(request):
     # Preco todas as moedas compra, venda e data
     def preco_moedas_compra():
         moeda = date_json.json()
+
         dolar_buy = moeda['results']['currencies']['USD']['buy']
         euro_buy = moeda['results']['currencies']['EUR']['buy']
         libra_buy = moeda['results']['currencies']['GBP']['buy']
@@ -107,15 +120,3 @@ def recebe_dados_e_salvar(request):
     preco_moedas_venda()
 
     return redirect('index')
-
-
-def pagina(request):
-    user = request.user
-    moedas = Preco_Moedas_Compra.objects.order_by('-id').all()
-
-    paginator = Paginator(moedas, 5)
-
-    page = request.GET.get('p')
-    moedas = paginator.get_page(page)
-
-    return render(request, 'pagina.html', {'moedas': moedas})
