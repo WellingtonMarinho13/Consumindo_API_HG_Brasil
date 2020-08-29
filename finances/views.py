@@ -1,24 +1,13 @@
 from django.shortcuts import render, redirect
 import requests
 from .forms import *
+from django.core.paginator import Paginator
 
 
 def index(request):
     recebe_dados_e_salvar(request)
-
-    real = Real_Moeda.objects.last()
-    euro = Euro_Moeda.objects.last()
-    libra = Libra_Esterlina_Moeda.objects.last()
-    peso = Peso_Argentino_Moeda.objects.last()
-    dolar = Dolar_Moeda.objects.last()
-
-    cambio = {'real': real,
-              'euro': euro,
-              'libra': libra,
-              'peso': peso,
-              'dolar': dolar}
-
-    return render(request, 'index.html', cambio)
+    moedas = Preco_Moedas_Compra.objects.order_by('-id').all()
+    return render(request, 'index.html', {'moedas': moedas})
 
 
 def recebe_dados_e_salvar(request):
@@ -120,7 +109,13 @@ def recebe_dados_e_salvar(request):
     return redirect('index')
 
 
-def visual(request):
+def pagina(request):
+    user = request.user
     moedas = Preco_Moedas_Compra.objects.order_by('-id').all()
-    return render(request, 'visual.html', {'moedas': moedas})
 
+    paginator = Paginator(moedas, 5)
+
+    page = request.GET.get('p')
+    moedas = paginator.get_page(page)
+
+    return render(request, 'pagina.html', {'moedas': moedas})

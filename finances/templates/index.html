@@ -1,43 +1,36 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <title>Cotação</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-</head>
-<body>
-    <div class="container">
-        <div class="col-12">
-            <p>Cotação em tempo real, via API HG Finance Brasil</p>
-            <p>Real <span class="badge badge-pill badge-primary">XXX</span></p>
-        </div>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th scope="col">{{real.name}}</th>
-                    <th scope="col">1 {{dolar.name_dolar}}</th>
-                    <th scope="col">1 {{euro.name_euro}}</th>
-                    <th scope="col">1 {{libra.name_libra}}</th>
-                    <th scope="col">1 {{peso.name_peso}}</th>
-                    <th scope="col"> Data </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">XXX</th>
-                    <th scope="row">{{dolar.buy_dolar}} Reais</th>
-                    <th scope="row">{{euro.buy_euro}} Reais</th>
-                    <th scope="row">{{libra.buy_libra}} Reais</th>
-                    <th scope="row">{{peso.buy_peso}} Reais</th>
-                    <th scope="row">{{real.data}}</th>
-                </tr>
-            </tbody>
-        </table>
+{% extends 'base.html' %}
+{% block title %} TEste {% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="col-12">
+        <p>Cotação em tempo real, via API HG Finance Brasil</p>
+        <p>Real <span class="badge badge-pill badge-primary">XXX</span></p>
     </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Real</th>
+                <th scope="col">1 Dolar</th>
+                <th scope="col">1 Euro</th>
+                <th scope="col">1 Libra</th>
+                <th scope="col">1 Peso</th>
+                <th scope="col">Data</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for moeda in moedas %}
+            <tr>
+                <th scope="row">Custo em Reais</th>
+                <th scope="row">{{ moeda.dolar }}</th>
+                <th scope="row">{{ moeda.euro }}</th>
+                <th scope="row">{{ moeda.libra }}</th>
+                <th scope="row">{{ moeda.peso }}</th>
+                <th scope="row">{{ moeda.data }}</th>
 
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-</body>
-</html>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock%}

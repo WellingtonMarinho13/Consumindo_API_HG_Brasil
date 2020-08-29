@@ -2,6 +2,11 @@
 {% block title %} TEste {% endblock %}
 
 {% block content %}
+<div class="container">
+    <div class="col-12">
+        <p>Cotação em tempo real, via API HG Finance Brasil</p>
+        <p>Real <span class="badge badge-pill badge-primary">XXX</span></p>
+    </div>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -25,52 +30,23 @@
 
             </tr>
             {% endfor %}
-<!-- 
-            {% for d in dolar %}
-            <tr>
-                <th>{{ d.buy_dolar }}</th>
-            </tr>
-            {% endfor %}
-
-
-            {% for d in euro %}
-            <tr>
-                <th>{{ d.buy_euro }}</th>
-            </tr>
-            {% endfor %}
-
-
-            {% for d in libra %}
-            <tr>
-                <th>{{ d.buy_libra }}</th>
-            </tr>
-            {% endfor %}
-
-
-            {% for d in peso %}
-            <tr>
-                <th>{{ d.buy_peso }}</th>
-            </tr>
-            {% endfor %}
-
-            {% for d in real %}
-            <tr>
-                <th>{{ d.real_data}}</th>
-            </tr>
-            {% endfor %}
- -->
-
         </tbody>
     </table>
+</div>
 
-
-
-
-
-    <!-- {% for moeda in cambio %}
-    <ul>
-        <li>{{ moeda.dolar. }}</li>
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        {% for pagina in moedas.paginator.page_range %}
+            {% if moedas.number == pagina %}
+            <li class="page-item active">
+                <a class="page-link" href="?p={{ pagina }}-&termo={{ request.GET.termo }}">{{pagina}}</a>
+            </li>
+            {%else%}
+            <li class="page-item">
+                <a class="page-link" href="?p={{ pagina }}-termo={{ request.GET.termo }}" >{{pagina}}</a>
+            </li>
+            {%endif%}
+            {%endfor%}
     </ul>
-    {% endfor %} -->
-
+</nav>
 {% endblock%}
