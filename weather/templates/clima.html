@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <br>
+    {{ hoje.nome }}
+    {{ hoje.temperatura }}
+    {{ hoje.maxima }}
+    {{ hoje.minima }}
+    {{ hoje.descricao }}
+<br>
+<br>
+    {{ amanha.dia }}
+    {{ amanha.maxima }}
+    {{ amanha.minima }}
+    {{ amanha.descricao }}
+<br>
+<br>
+    {{ dois.dia }}
+    {{ dois.maxima }}
+    {{ dois.minima }}
+    {{ dois.descricao }}
+
+
+<br>
+
+{% endblock %}
