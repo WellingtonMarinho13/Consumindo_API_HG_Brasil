@@ -7,7 +7,6 @@ import requests
 def get_ip_user():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     s.connect(("8.8.8.8", 80))
-    print(s.getsockname()[0])
     ip = s.getsockname()[0]
     s.close()
     return ip
@@ -108,9 +107,6 @@ def previsao_clima(request):
 
         return oito_dias
 
-
-
-
     hoje = hoje()
     amanha = amanha()
     dois = dois_dias()
@@ -121,7 +117,7 @@ def previsao_clima(request):
     sete = sete_dias()
     oito = oito_dias()
 
-    print(hoje)
+    '''print(hoje)
     print(amanha)
     print(dois)
     print(tres)
@@ -130,6 +126,11 @@ def previsao_clima(request):
     print(seis)
     print(sete)
     print(oito)
+    lista = [amanha, dois, tres, quatro]
+    for v in lista:
+        for key, value in v.items():
+            print(value)
+        print()'''
 
     context = {'hoje': hoje,
                'amanha': amanha,
@@ -140,4 +141,9 @@ def previsao_clima(request):
                'seis': seis,
                'sete': sete,
                'oito': oito}
+
+    for key, value in context.items():
+        for k, v in value.items():
+            print(k, v)
+
     return render(request, 'clima.html', context)

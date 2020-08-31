@@ -2,11 +2,11 @@
 
 {% block content %}
 <div class="col-12">
-  <p>Previsão em tempo real, via API HG Weather Brasil</p>
+  <p><h2>Previsão em tempo real, via API HG Weather Brasil</h2></p>
 </div>   
 <div>
-  <table class="table table-triped">
-  <thead>
+  <table class="table">
+  <thead class="thead-dark">
     <tr>
       <th>Cidade</th>
       <th>Temperatura</th>
@@ -26,34 +26,100 @@
       <th>Agora</th> 
     </tr>
   </tbody>
+  </table>
 </div>
 
 <div>
-  <table></table>
+  <p><h2>Previsão para os próximos dias</h2></p>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Cidade</th>
+        <th scope="col">Data</th>
+        <th scope="col">Máxima</th>
+        <th scope="col">Mínima</th>
+        <th scope="col">Descricão</th>
+      </tr>
+    </thead>
+    <tbody>
+       
+    
+        <th>{{ hoje.nome}}</th>
+        <th>{{ amanha.dia}}</th>
+        <th>{{ amanha.maxima}}</th>
+        <th>{{ amanha.minima }}</th>
+        <th>{{ amanha.descricao }}</th>     
+      </tr>
+      
+      <tr>
+        <th>{{ hoje.nome}}</th>
+        <th>{{ dois.dia}}</th>
+        <th>{{ dois.maxima}}</th>
+        <th>{{ dois.minima }}</th>
+        <th>{{ dois.descricao }}</th> 
+      </tr>
+     
+
+      <tr>
+        <th>{{ hoje.nome}}</th>
+        <th>{{ tres.dia}}</th>
+        <th>{{ tres.maxima}}</th>
+        <th>{{ tres.minima }}</th>
+        <th>{{ tres.descricao }}</th> 
+      </tr>
+     
+
+      <tr>
+        <th>{{ hoje.nome}}</th>
+        <th>{{ quatro.dia}}</th>
+        <th>{{ quatro.maxima}}</th>
+        <th>{{ quatro.minima }}</th>
+        <th>{{ quatro.descricao }}</th> 
+      </tr>
+     
+
+      <tr>
+        <th>{{ hoje.nome}}</th>
+        <th>{{ cinco.dia}}</th>
+        <th>{{ cinco.maxima}}</th>
+        <th>{{ cinco.minima }}</th>
+        <th>{{ cinco.descricao }}</th> 
+      </tr>
+     
+
+      <tr>
+        <th>{{ hoje.nome}}</th>
+        <th>{{ seis.dia}}</th>
+        <th>{{ seis.maxima}}</th>
+        <th>{{ seis.minima }}</th>
+        <th>{{ seis.descricao }}</th> 
+      </tr>
+     
+
+      <tr>
+        <th>{{ hoje.nome}}</th>
+        <th>{{ sete.dia}}</th>
+        <th>{{ sete.maxima}}</th>
+        <th>{{ sete.minima }}</th>
+        <th>{{ sete.descricao }}</th> 
+      </tr>
+     
+
+      <tr>
+        <th>{{ hoje.nome}}</th>
+        <th>{{ oito.dia}}</th>
+        <th>{{ oito.maxima}}</th>
+        <th>{{ oito.minima }}</th>
+        <th>{{ oito.descricao }}</th> 
+      </tr>
+     
+    </tbody>
+  </table>
 </div>
     
     
     
 
 
-
-
-
-
-</table>
-
-  <p>Amanhã</p>  {{ amanha.dia }}
-    {{ amanha.maxima }}
-    {{ amanha.minima }}
-    {{ amanha.descricao }}
-<br>
-<br>
-  <p>Em dois dias</p>  {{ dois.dia }}
-    {{ dois.maxima }}
-    {{ dois.minima }}
-    {{ dois.descricao }}
-
-
-<br>
 
 {% endblock %}
