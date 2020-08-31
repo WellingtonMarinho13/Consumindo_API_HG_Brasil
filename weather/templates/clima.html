@@ -1,21 +1,54 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <br>
-    {{ hoje.nome }}
-    {{ hoje.temperatura }}
-    {{ hoje.maxima }}
-    {{ hoje.minima }}
-    {{ hoje.descricao }}
-<br>
-<br>
-    {{ amanha.dia }}
+<div class="col-12">
+  <p>Previsão em tempo real, via API HG Weather Brasil</p>
+</div>   
+<div>
+  <table class="table table-triped">
+  <thead>
+    <tr>
+      <th>Cidade</th>
+      <th>Temperatura</th>
+      <th>Máxima</th>
+      <th>Mínima</th>
+      <th>Descrição</th>
+      <th>Período</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>{{ hoje.nome }}</th>
+      <th>{{ hoje.temperatura }}</th>
+      <th>{{ hoje.maxima }}</th>
+      <th>{{ hoje.minima }}</th>
+      <th>{{ hoje.descricao }}</th>
+      <th>Agora</th> 
+    </tr>
+  </tbody>
+</div>
+
+<div>
+  <table></table>
+</div>
+    
+    
+    
+
+
+
+
+
+
+</table>
+
+  <p>Amanhã</p>  {{ amanha.dia }}
     {{ amanha.maxima }}
     {{ amanha.minima }}
     {{ amanha.descricao }}
 <br>
 <br>
-    {{ dois.dia }}
+  <p>Em dois dias</p>  {{ dois.dia }}
     {{ dois.maxima }}
     {{ dois.minima }}
     {{ dois.descricao }}
