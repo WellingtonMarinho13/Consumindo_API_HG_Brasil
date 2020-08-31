@@ -100,10 +100,10 @@ def previsao_clima(request):
 
     def oito_dias():
         oito_dias = dict()
-        oito_dias['dia'] = date['results']['forecast'][5]['weekday']
-        oito_dias['maxima'] = date['results']['forecast'][5]['max']
-        oito_dias['minima'] = date['results']['forecast'][5]['min']
-        oito_dias['descricao'] = date['results']['forecast'][5]['description']
+        oito_dias['dia'] = date['results']['forecast'][8]['weekday']
+        oito_dias['maxima'] = date['results']['forecast'][8]['max']
+        oito_dias['minima'] = date['results']['forecast'][8]['min']
+        oito_dias['descricao'] = date['results']['forecast'][8]['description']
 
         return oito_dias
 
